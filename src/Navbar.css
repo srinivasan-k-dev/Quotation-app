@@ -1,0 +1,56 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #1e1e1e;
+  padding: 10px;
+  border-bottom: 2px solid #444;
+}
+
+/* Buttons */
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* 🔥 FIX: Add background to images */
+.nav-btn img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+
+  background-color: white;   /* 👈 THIS FIXES VISIBILITY */
+  padding: 5px;
+  border-radius: 8px;
+
+  margin-bottom: 4px;
+}
+
+/* Text */
+.nav-btn span {
+  color: white;
+  font-size: 12px;
+}
+
+/* Download button */
+.download-btn {
+  padding: 8px 14px;
+  background-color: #00b894;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Hover */
+.nav-btn:hover img {
+  transform: scale(1.1);
+  transition: 0.

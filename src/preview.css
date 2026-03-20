@@ -1,0 +1,85 @@
+.page {
+  width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #000;
+  font-family: "Noto Sans Tamil", sans-serif;
+}
+
+.header {
+  text-align: center;
+}
+
+.top-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.notice {
+  border: 1px solid red;
+  padding: 8px;
+  margin: 10px 0;
+  color: red;
+  font-weight: bold;
+}
+
+.quotation {
+  background: red;
+  color: white;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.info {
+  margin: 15px 0;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 6px;
+  text-align: left;
+}
+
+.total {
+  margin-top: 20px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.borewellName {
+  margin-top: 20px;
+  display: flex;          /* 👈 important */
+  justify-content: flex-end; /* 👈 moves to right side */
+  align-items: center;    /* 👈 same line vertically aligned */
+  gap: 6px;
+  font-weight: bold;
+}
+
+.borewellName p,
+.borewellName h4 {
+  margin: 0;
+}
+
+.footer-above p {
+  margin: 4px 0;
+}
