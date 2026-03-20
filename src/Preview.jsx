@@ -1,16 +1,41 @@
 import React from "react";
 import "./preview.css";
 
-function Preview({ formData }) {
+function Preview({ formData = {} }) {
+
+  // 🔢 Row calculations
+  const row1 = Number(formData.inch || 0) * Number(formData.veetham || 0) * Number(formData.adi || 0);
+  const row2 = Number(formData.jalli || 0);
+  const row3 = Number(formData.kamprasar || 0);
+const row4 = Number(formData.transport || 0);
+const row5 = Number(formData.mattukuli || 0);
+const row6 = Number(formData.mattu || 0);
+  const row7 = Number(formData.pipe || 0) * Number(formData.meter || 0) * Number(formData.meterukku || 0);
+  const row8 = Number(formData.slad || 0);
+  const row9 = Number(formData.cape || 0);
+const row10 = Number(formData.clamp || 0);
+const row11 = Number(formData.water || 0);
+const row12 = Number(formData.tank || 0);
+const row13 = Number(formData.pipeTransport || 0);
+  const row14 = Number(formData.pump || 0) + Number(formData.HP || 0);
+
+  // 💰 Total
+const total =
+  row1 + row2 + row3 +
+  row4 + row5 + row6 +
+  row7 + row8 + row9 +
+  row10 + row11 + row12 +
+  row13 + row14;
   return (
     <div className="page">
+
       {/* Header */}
       <div className="header">
         <p className="top-line">
           செல் : 9442998070 <span>செல் : 9443549457</span>
         </p>
-<p>உ</p>
-<p>ஸ்ரீ மார்‌‌‌க்‌‌‌கமுடையார்‌‌‌ அய்‌‌‌யனார்‌‌‌ துணை</p>
+        <p>உ</p>
+        <p>ஸ்ரீ மார்க்கமுடையார் அய்யனார் துணை</p>
         <h1>ஸ்ரீ ராகவேந்திரா போர்வெல்ஸ்</h1>
 
         <p>
@@ -19,8 +44,7 @@ function Preview({ formData }) {
         </p>
 
         <div className="notice">
-          குடிநீர்‌‌‌ மற்றும் விவசாயத்‌‌‌திற்‌‌‌கு தேவையான போர்‌‌‌வேல்‌‌‌
-          சிறந்த முறையில் அமைத்துத் தரப்படும்.
+          குடிநீர் மற்றும் விவசாயத்திற்கு தேவையான போர்வெல் சிறந்த முறையில் அமைத்துத் தரப்படும்.
         </div>
 
         <h2 className="quotation">QUOTATION</h2>
@@ -28,15 +52,15 @@ function Preview({ formData }) {
 
       {/* Customer Info */}
       <div className="info">
-        <p>திரு: {formData.name?.trim() || " ________________________________" }</p>
-        <p>முகவரி: { formData.address?.trim() || "_____________________________" }</p>
+        <p>திரு: {formData.name || " ________________________________"}</p>
+        <p>முகவரி: {formData.address || "_____________________________"}</p>
       </div>
 
-      {/* Borewell Details */}
+      {/* Details */}
       <div className="details">
-        <div>போர்வெல் சைஸ்: { formData.size?.trim() || " ______" }</div>
-        <div>போர்வெல் ஆழம்: { formData.depth?.trim() || "______" }</div>
-        <div>தேதி:{ formData.date?.trim() || " ______" }</div>
+        <div>போர்வெல் சைஸ்: {formData.size || " ______"}</div>
+        <div>போர்வெல் ஆழம்: {formData.depth || "______"}</div>
+        <div>தேதி: {formData.date || " ______"}</div>
       </div>
 
       {/* Table */}
@@ -49,34 +73,77 @@ function Preview({ formData }) {
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td> { formData.inch?.trim() || "______" } இஞ்ச் போர் 1 அடிக்கு ரூ { formData.veetham?.trim() || "____" } வீதம்‌‌‌ { formData.adi?.trim() || "_____" } அடிக்‌‌‌கு</td><td></td></tr>
-          <tr><td>2</td><td>ஜல்லி (விருத்‌‌‌தாச்‌‌‌சலம்‌‌‌) { formData.jalli?.trim() || " _____________________" }</td><td></td></tr>
-          <tr><td>3</td><td>கம்ப்ரசர் { formData.kamprasar?.trim() || "_____" } மணி நேரம்‌‌‌ டிரைவர்‌‌‌ படி உட்‌‌‌பட</td><td></td></tr>
-          <tr><td>4</td><td>போர் செட் டிரான்ஸ்போர்ட் சார்ஜ்</td><td></td></tr>
-          <tr><td>5</td><td>மட்டு குழி சார்ஜ்</td><td></td></tr>
-          <tr><td>6</td><td>மட்டு சார்ஜ் (களிமண்)</td><td></td></tr>
-          <tr><td>7</td><td> { formData.pipe?.trim() || "____" } பைப் ஒரு மீட்டர் ரூ { formData.meter?.trim() || "_____" } வீதம்‌‌‌ { formData.meterukku?.trim() || " _____" } மீட்‌‌‌டருக்‌‌‌கு</td><td></td></tr>
-          <tr><td>8</td><td> { formData.slad?.trim() || "_____" } அடி பைப்‌‌‌ ஸ்‌‌‌லாட்‌‌‌ போடுவதற்‌‌‌கு</td><td></td></tr>
-          <tr><td>9</td><td> { formData.cape?.trim() || "_____" } இஞ்ச் எண்ட் கேப்</td><td></td></tr>
-          <tr><td>10</td><td>கிளாம்ப் / டாப்‌‌‌ கவர்‌‌‌</td><td></td></tr>
-          <tr><td>11</td><td>தண்ணீர் சார்ஜ்</td><td></td></tr>
-          <tr><td>12</td><td>டேங்‌‌‌க்‌‌‌ வாடகை மற்றும் டிரான்ஸ்போர்ட்</td><td></td></tr>
-          <tr><td>13</td><td>பைப் டிரான்ஸ்போர்ட்</td><td></td></tr>
-          <tr><td>14</td><td> { formData.pump?.trim() || "_________" } பம்‌‌‌பு { formData.HP?.trim() || " _______" } H.P</td><td></td></tr>
+
+          <tr>
+            <td>1</td>
+            <td>
+              {formData.inch || "____"} இஞ்ச் போர் 1 அடிக்கு ரூ {formData.veetham || "____"} வீதம் {formData.adi || "____"} அடிக்கு
+            </td>
+            <td>₹ {row1 || ""}</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>ஜல்லி {formData.jalli || ""}</td>
+            <td>₹ {row2 || ""}</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>கம்ப்ரசர் {formData.kamprasar || ""}</td>
+            <td>₹ {row3 || ""}</td>
+          </tr>
+
+<tr><td>4</td><td>போர் செட் டிரான்ஸ்போர்ட் சார்ஜ்</td><td>₹ {row4 || ""}</td></tr>
+<tr><td>5</td><td>மட்டு குழி சார்ஜ்</td><td>₹ {row5 || ""}</td></tr>
+<tr><td>6</td><td>மட்டு சார்ஜ்</td><td>₹ {row6 || ""}</td></tr>
+
+          <tr>
+            <td>7</td>
+            <td>
+              {formData.pipe || ""} பைப் ரூ {formData.meter || ""} × {formData.meterukku || ""}
+            </td>
+            <td>₹ {row7 || ""}</td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>{formData.slad || ""} அடி ஸ்லாட்</td>
+            <td>₹ {row8 || ""}</td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>{formData.cape || ""} எண்ட் கேப்</td>
+            <td>₹ {row9 || ""}</td>
+          </tr>
+
+<tr><td>10</td><td>கிளாம்ப் / டாப் கவர்</td><td>₹ {row10 || ""}</td></tr>
+<tr><td>11</td><td>தண்ணீர் சார்ஜ்</td><td>₹ {row11 || ""}</td></tr>
+<tr><td>12</td><td>டேங்க் வாடகை</td><td>₹ {row12 || ""}</td></tr>
+<tr><td>13</td><td>பைப் டிரான்ஸ்போர்ட்</td><td>₹ {row13 || ""}</td></tr>
+
+          <tr>
+            <td>14</td>
+            <td>
+              {formData.pump || ""} பம்பு {formData.HP || ""} HP
+            </td>
+            <td>₹ {row14 || ""}</td>
+          </tr>
+
         </tbody>
       </table>
 
       {/* Total */}
       <div className="total">
-        <p>மொத்தம்: ₹ { calculateTotal() || " __________________" }</p>
-
+        <p>மொத்தம்: ₹ {total !== 0 ? total : " __________________"}</p>
       </div>
+
 <div className="borewellName">
 <p>For</p><h4>ஸ்ரீ ராகவேந்‌‌‌திரா போர்‌‌‌வேல்‌‌‌ஸ்‌‌‌</h4>
 </div>
 
-
-      {/* Footer above */}
+ {/* Footer above */}
       <div className="footer-above">
         <p>இந்த வேலைக்கு ரூ. __________________ முன் பணமாக</p>
 <p> பெற்‌‌‌றுக்‌‌‌ கொண்‌‌‌டேன்‌‌‌.</p>
@@ -86,36 +153,8 @@ function Preview({ formData }) {
  <h3>பாறை வந்‌‌‌தால்‌‌‌ பாறை உடைக்‌‌‌கும்‌‌‌ சார்‌‌‌ஜ்‌‌‌ தனி...</h3>
 </div>
     </div>
+   
   );
 }
-const calculateTotal = () => {
-  const {
-    inch = 0,
-    veetham = 0,
-    adi = 0,
-    jalli = 0,
-    kamprasar = 0,
-    pipe = 0,
-    meter = 0,
-    meterukku = 0,
-    slad = 0,
-    cape = 0,
-    pump = 0,
-    HP = 0,
-  } = formData;
-
-  return (
-    Number(inch) * Number(veetham) +
-    Number(adi) +
-    Number(jalli) +
-    Number(kamprasar) +
-    Number(pipe) +
-    Number(meter) * Number(meterukku) +
-    Number(slad) +
-    Number(cape) +
-    Number(pump) +
-    Number(HP)
-  );
-};
 
 export default Preview;

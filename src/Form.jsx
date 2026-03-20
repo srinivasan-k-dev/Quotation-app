@@ -37,11 +37,11 @@ function Form({ formData, setFormData }) {
 <p>கம்‌‌‌ப்‌‌‌ரசர்‌‌‌</p>      
 <input type="number" name="kamprasar" value={formData.kamprasar} onChange={handleChange}/>
 <p>போர்‌‌‌ செட்‌‌‌ டிரன்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌ சார்‌‌‌ஜ்‌‌‌</p>      
-<input type="number" />
+<input type="number" name="transport" value={formData.transport || ""} onChange={handleChange} />
 <p>மட்‌‌‌டு குழி சார்‌‌‌ஜ்‌‌‌</p>      
-<input type="number" />
+<input type="number" name="mattukuli" value={formData.mattukuli || ""} onChange={handleChange} />
 <p>மட்‌‌‌டு சார்‌‌‌ஜ்‌‌‌</p>      
-<input type="number" />
+<input type="number" name="mattu" value={formData.mattu || ""} onChange={handleChange} />
 <p>பைப்‌‌‌</p>
 <input type="number" name="pipe" value={formData.pipe} onChange={handleChange}/>
 <p>மீட்‌‌‌டர்‌‌‌ ஒன்‌‌‌றுக்‌‌‌கு ரூ</p>
@@ -53,13 +53,13 @@ function Form({ formData, setFormData }) {
 <p>இஞ்‌‌‌சி எண்‌‌‌ட்‌‌‌ கேப்‌‌‌</p>
 <input type="number" name="cape" value={formData.cape} onChange={handleChange}/>
 <p>கிளாம்‌‌‌ப்‌‌‌ / டாப்‌‌‌ கவர்‌‌‌</p>
-<input type="number"/>
+<input type="number" name="clamp" value={formData.clamp || ""} onChange={handleChange} />
 <p>தண்‌‌‌ணீர்‌‌‌ சார்‌‌‌ஜ்‌‌‌</p>
-<input type="number"/>
+<input type="number" name="water" value={formData.water || ""} onChange={handleChange} />
 <p>டேங்‌‌‌க்‌‌‌ வாடகை மற்‌‌‌றும்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌</p>
-<input type="number"/>
+<input type="number" name="tank" value={formData.tank || ""} onChange={handleChange} />
 <p>பைப்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌</p>
-<input type="number"/>
+<input type="number" name="pipeTransport" value={formData.pipeTransport || ""} onChange={handleChange} />
 <p>பம்‌‌‌பு</p>
 <input type="number" name="pump" value={formData.pump} onChange={handleChange}/>
 <p>H.P</p>
