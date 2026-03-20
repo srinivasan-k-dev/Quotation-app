@@ -1,0 +1,86 @@
+/* 🔥 Global form container */
+form {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🔥 Section spacing */
+form p {
+  margin: 10px 0 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 🔥 Grid layout */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 20px;
+}
+
+/* Full width elements */
+form p:nth-child(odd),
+form input[type="date"],
+form button {
+  grid-column: span 2;
+}
+
+/* 🔥 Inputs */
+form input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* Focus effect */
+form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+/* Number input alignment */
+form input[type="number"] {
+  text-align: right;
+}
+
+/* 🔥 Button */
+form button {
+  margin-top: 15px;
+  padding: 12px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button hover */
+form button:hover {
+  background: linear-gradient(135deg, #0056b3, #003f88);
+}
+
+/* 🔥 Mobile responsive */
+@media (max-width: 600px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form p,
+  form input,
+  form button {
+    grid-column: span 1 !important;
+  }
+}

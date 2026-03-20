@@ -1,21 +1,23 @@
 .page {
-  width: 794px;   /* A4 width */
-  min-height: 1123px; /* A4 height */
-  margin: auto;
-  background: white;
-  padding: 20px;
-margin: auto;
-  padding: 20px;
+  width: 760px;
+  height: 1080px;   /* 🔥 FIXED (not min-height) */
+  margin: 0 auto;   /* 🔥 remove extra vertical margin */
+  padding: 10px;    /* 🔥 reduce */
   border: 1px solid #000;
   font-family: "Noto Sans Tamil", sans-serif;
+  box-sizing: border-box;
+  overflow: hidden; /* 🔥 prevent spill */
 }
 
+
+/* Print fix */
 @media print {
   body {
     margin: 0;
   }
 }
 
+/* Header */
 .header {
   text-align: center;
 }
@@ -23,66 +25,66 @@ margin: auto;
 .top-line {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 13px; /* slightly reduced */
 }
 
+/* Notice */
 .notice {
   border: 1px solid red;
-  padding: 8px;
-  margin: 10px 0;
+  padding: 6px;
+  margin: 8px 0;
   color: red;
   font-weight: bold;
+  font-size: 13px;
 }
 
+/* Quotation label */
 .quotation {
   background: red;
   color: white;
   display: inline-block;
-  padding: 5px 10px;
+  padding: 4px 8px;
+  font-size: 14px;
 }
 
+/* Info */
 .info {
-  margin: 15px 0;
+  margin: 10px 0;
+  font-size: 14px;
 }
 
+/* Details row */
 .details {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
-th, td {
-  padding: 6px;
-  text-align: left;
-}
-
+/* Total */
 .total {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: right;
   font-weight: bold;
+  font-size: 15px;
 }
 
+/* Footer */
 .footer {
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
+  font-size: 13px;
 }
 
+/* Borewell name (right aligned) */
 .borewellName {
-  margin-top: 20px;
-  display: flex;          /* 👈 important */
-  justify-content: flex-end; /* 👈 moves to right side */
-  align-items: center;    /* 👈 same line vertically aligned */
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   gap: 6px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .borewellName p,
@@ -90,6 +92,51 @@ th, td {
   margin: 0;
 }
 
+/* Footer above */
+.footer-above {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
 .footer-above p {
-  margin: 4px 0;
+  margin: 3px 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* important */
+}
+
+/* 🔥 Control column widths */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 40px;       /* Serial No (small) */
+  text-align: center;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: auto;       /* Details (takes max space) */
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 80px;       /* Amount (small) */
+  text-align: right;
+}
+
+/* Borders */
+table, th, td {
+  border: 1px solid black;
+}
+
+/* Keep your existing padding */
+th, td {
+  padding: 4px;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+td:nth-child(3) {
+  text-align: right;
+  font-weight: 500;
 }
