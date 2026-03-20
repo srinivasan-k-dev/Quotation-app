@@ -29,14 +29,32 @@ const total =
   row10 + row11 + row12 +
   row13 + row14;
 const downloadPDF = () => {
-    const element = document.getElementById("pdf-content");
+  const element = document.getElementById("pdf-content");
 
-    html2pdf().from(element).save();
+  const opt = {
+    margin: 0,
+    filename: "quotation.pdf",
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: {
+      scale: 3,
+      useCORS: true,
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait",
+    },
   };
+
+  html2pdf().set(opt).from(element).save();
+};
   return (
 <>
-<button onClick={downloadPDF}>Download PDF</button>
-<div id="pdf-content" className="page">
+  <div style={{ textAlign: "center", margin: "10px" }}>
+    <button onClick={downloadPDF}>Download PDF</button>
+  </div>
+
+  <div id="pdf-content" className="page">
       {/* Header */}
       <div className="header">
         <p className="top-line">
