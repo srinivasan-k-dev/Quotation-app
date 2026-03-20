@@ -1,7 +1,8 @@
 import './form.css'
+import { useNavigate } from "react-router-dom";
 
-function Form({ formData, setFormData }) {
-
+function Form({ formData, setFormData, onSubmit }) {
+  const navigate = useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -11,7 +12,13 @@ function Form({ formData, setFormData }) {
     });
 }
   return (
-<form onSubmit={(e) => e.preventDefault()}>
+<form
+  onSubmit={(e) => {
+    e.preventDefault();
+    onSubmit(formData);      // 🔥 send data
+    navigate("/preview");    // 🔥 go to preview page
+  }}
+>
       <p>பெயர்</p>
       <input type="text" name="name" value={formData.name} onChange={handleChange}/>
 
