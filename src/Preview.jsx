@@ -1,24 +1,26 @@
 import React from "react";
 import "./preview.css";
+import html2pdf from "html2pdf.js";
+
 
 function Preview({ formData = {} }) {
 
+const num = (val) => Number(val) || 0;
   // 🔢 Row calculations
-  const row1 = Number(formData.inch || 0) * Number(formData.veetham || 0) * Number(formData.adi || 0);
-  const row2 = Number(formData.jalli || 0);
-  const row3 = Number(formData.kamprasar || 0);
-const row4 = Number(formData.transport || 0);
-const row5 = Number(formData.mattukuli || 0);
-const row6 = Number(formData.mattu || 0);
-  const row7 = Number(formData.pipe || 0) * Number(formData.meter || 0) * Number(formData.meterukku || 0);
-  const row8 = Number(formData.slad || 0);
-  const row9 = Number(formData.cape || 0);
-const row10 = Number(formData.clamp || 0);
-const row11 = Number(formData.water || 0);
-const row12 = Number(formData.tank || 0);
-const row13 = Number(formData.pipeTransport || 0);
-  const row14 = Number(formData.pump || 0) + Number(formData.HP || 0);
-
+const row1 = num(formData.inch) * num(formData.veetham) * num(formData.adi);
+const row2 = num(formData.jalli);
+const row3 = num(formData.kamprasar);
+const row4 = num(formData.transport);
+const row5 = num(formData.mattukuli);
+const row6 = num(formData.mattu);
+const row7 = num(formData.pipe) * num(formData.meter) * num(formData.meterukku);
+const row8 = num(formData.slad);
+const row9 = num(formData.cape);
+const row10 = num(formData.clamp);
+const row11 = num(formData.water);
+const row12 = num(formData.tank);
+const row13 = num(formData.pipeTransport);
+const row14 = num(formData.pump) + num(formData.HP);
   // 💰 Total
 const total =
   row1 + row2 + row3 +
@@ -26,9 +28,15 @@ const total =
   row7 + row8 + row9 +
   row10 + row11 + row12 +
   row13 + row14;
-  return (
-    <div className="page">
+const downloadPDF = () => {
+    const element = document.getElementById("pdf-content");
 
+    html2pdf().from(element).save();
+  };
+  return (
+<>
+<button onClick={downloadPDF}>Download PDF</button>
+<div id="pdf-content" className="page">
       {/* Header */}
       <div className="header">
         <p className="top-line">
@@ -136,7 +144,7 @@ const total =
 
       {/* Total */}
       <div className="total">
-        <p>மொத்தம்: ₹ {total !== 0 ? total : " __________________"}</p>
+        <p>மொத்தம்: ₹ {total ? total : " __________________"}</p>
       </div>
 
 <div className="borewellName">
@@ -153,8 +161,7 @@ const total =
  <h3>பாறை வந்‌‌‌தால்‌‌‌ பாறை உடைக்‌‌‌கும்‌‌‌ சார்‌‌‌ஜ்‌‌‌ தனி...</h3>
 </div>
     </div>
-   
+    </>  
   );
 }
-
 export default Preview;
