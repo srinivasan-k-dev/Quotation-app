@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import formImg from "./assets/Form.jpg";
 import previewImg from "./assets/preview.png";
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
   const navigate = useNavigate();
 
   return (
