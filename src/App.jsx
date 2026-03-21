@@ -35,7 +35,6 @@ function App() {
 
   // 🔥 NEW STATE (important)
   const [submittedData, setSubmittedData] = useState({});
-
   return (
     <>
       <Navbar />
@@ -54,7 +53,7 @@ function App() {
 
         <Route
           path="/preview"
-          element={<Preview formData={submittedData} />} // 🔥 use submittedData
+          element={<Preview formData={Object.keys(submittedData).length ? submittedData : formData} />} // 🔥 use submittedData
         />
       </Routes>
     </>
