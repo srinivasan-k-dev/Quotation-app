@@ -21,9 +21,6 @@ const Navbar = () => {
         <span>Preview</span>
       </button>
 
-      <button className="download-btn">
-        Download PDF
-      </button>
 
     </div>
   );

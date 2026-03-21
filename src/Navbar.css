@@ -39,17 +39,6 @@
   font-size: 12px;
 }
 
-/* Download button */
-.download-btn {
-  padding: 8px 14px;
-  background-color: #00b894;
-  color: white;
-
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
 /* Hover */
 .nav-btn:hover img {
   transform: scale(1.1);

@@ -5,22 +5,25 @@ import html2pdf from "html2pdf.js";
 
 function Preview({ formData = {} }) {
 
-const num = (val) => Number(val) || 0;
+const num = (val) => {
+  const match = String(val).match(/\d+(\.\d+)?/);
+  return match ? Number(match[0]) : 0;
+};
   // 🔢 Row calculations
-const row1 = num(formData.inch) * num(formData.veetham) * num(formData.adi);
-const row2 = num(formData.jalli);
-const row3 = num(formData.kamprasar);
+const row1 = num(formData.veetham) * num(formData.adi);
+const row2 = 130 * num(formData.jalli);
+const row3 = 2500 * num(formData.kamprasar);
 const row4 = num(formData.transport);
 const row5 = num(formData.mattukuli);
 const row6 = num(formData.mattu);
-const row7 = num(formData.pipe) * num(formData.meter) * num(formData.meterukku);
-const row8 = num(formData.slad);
-const row9 = num(formData.cape);
+const row7 = num(formData.meter) * num(formData.meterukku);
+const row8 = 10 * num(formData.slad);
+const row9 = 75 * num(formData.cape);
 const row10 = num(formData.clamp);
 const row11 = num(formData.water);
 const row12 = num(formData.tank);
 const row13 = num(formData.pipeTransport);
-const row14 = num(formData.pump) + num(formData.HP);
+const row14 = num(formData.pump);
   // 💰 Total
 const total =
   row1 + row2 + row3 +
@@ -50,8 +53,8 @@ const downloadPDF = () => {
 };
   return (
 <>
-  <div style={{ textAlign: "center", margin: "10px" }}>
-    <button onClick={downloadPDF}>Download PDF</button>
+  <div className="div">
+    <button className="download-btn" onClick={downloadPDF}>Download PDF</button>
   </div>
 
   <div id="pdf-content" className="page">
@@ -78,7 +81,7 @@ const downloadPDF = () => {
 
       {/* Customer Info */}
       <div className="info">
-        <p>திரு: {formData.name || " ________________________________"}</p>
+        <p>திரு / திருமதி: {formData.name || " ________________________________"}</p>
         <p>முகவரி: {formData.address || "_____________________________"}</p>
       </div>
 
@@ -105,56 +108,56 @@ const downloadPDF = () => {
             <td>
               {formData.inch || "____"} இஞ்ச் போர் 1 அடிக்கு ரூ {formData.veetham || "____"} வீதம் {formData.adi || "____"} அடிக்கு
             </td>
-            <td>₹ {row1 || ""}</td>
+            <td>₹ {row1 || "____________"}</td>
           </tr>
 
           <tr>
             <td>2</td>
-            <td>ஜல்லி {formData.jalli || ""}</td>
-            <td>₹ {row2 || ""}</td>
+            <td>ஜல்லி(விருத்‌‌‌தாச்‌‌‌சலம்‌‌‌) {formData.jalli || "__________"}</td> 
+            <td>₹ {row2 || "____________"}</td>
           </tr>
 
           <tr>
             <td>3</td>
-            <td>கம்ப்ரசர் {formData.kamprasar || ""}</td>
-            <td>₹ {row3 || ""}</td>
+            <td>கம்ப்ரசர் {formData.kamprasar || "_________"} மணி டிரைவர்‌‌‌ படி உட்‌‌‌பட</td>
+            <td>₹ {row3 || "____________"}</td>
           </tr>
 
-<tr><td>4</td><td>போர் செட் டிரான்ஸ்போர்ட் சார்ஜ்</td><td>₹ {row4 || ""}</td></tr>
-<tr><td>5</td><td>மட்டு குழி சார்ஜ்</td><td>₹ {row5 || ""}</td></tr>
-<tr><td>6</td><td>மட்டு சார்ஜ்</td><td>₹ {row6 || ""}</td></tr>
+<tr><td>4</td><td>போர் செட் டிரான்ஸ்போர்ட் சார்ஜ்</td><td>₹ {row4 || "____________"}</td></tr>
+<tr><td>5</td><td>மட்டு குழி சார்ஜ்</td><td>₹ {row5 || "____________"}</td></tr>
+<tr><td>6</td><td>மட்டு சார்ஜ்(களி மண்‌‌‌)</td><td>₹ {row6 || "____________"}</td></tr>
 
           <tr>
             <td>7</td>
             <td>
-              {formData.pipe || ""} பைப் ரூ {formData.meter || ""} × {formData.meterukku || ""}
+              {formData.pipe || "________"} பைப் ஒரு மீட்‌‌‌டர்‌‌‌  ரூ {formData.meter || "________"} வீதம்‌‌‌  {formData.meterukku || "________"} மீட்‌‌‌டருக்‌‌‌கு
             </td>
-            <td>₹ {row7 || ""}</td>
+            <td>₹ {row7 || "____________"}</td>
           </tr>
 
           <tr>
             <td>8</td>
-            <td>{formData.slad || ""} அடி ஸ்லாட்</td>
-            <td>₹ {row8 || ""}</td>
+            <td>{formData.slad || "________"} அடி பைப்‌‌‌ ஸ்லாட் போடுவதற்‌‌‌கு</td>
+            <td>₹ {row8 || "____________"}</td>
           </tr>
 
           <tr>
             <td>9</td>
-            <td>{formData.cape || ""} எண்ட் கேப்</td>
-            <td>₹ {row9 || ""}</td>
+            <td>{formData.cape || "________"} இஞ்‌‌‌ச்‌‌‌ எண்ட் கேப்</td>
+            <td>₹ {row9 || "____________"}</td>
           </tr>
 
-<tr><td>10</td><td>கிளாம்ப் / டாப் கவர்</td><td>₹ {row10 || ""}</td></tr>
-<tr><td>11</td><td>தண்ணீர் சார்ஜ்</td><td>₹ {row11 || ""}</td></tr>
-<tr><td>12</td><td>டேங்க் வாடகை</td><td>₹ {row12 || ""}</td></tr>
-<tr><td>13</td><td>பைப் டிரான்ஸ்போர்ட்</td><td>₹ {row13 || ""}</td></tr>
+<tr><td>10</td><td>கிளாம்ப் / டாப் கவர்</td><td>₹ {row10 || "____________"}</td></tr>
+<tr><td>11</td><td>தண்ணீர் சார்ஜ்</td><td>₹ {row11 || "____________"}</td></tr>
+<tr><td>12</td><td>டேங்க் வாடகை மற்‌‌‌றும்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌</td><td>₹ {row12 || "____________"}</td></tr>
+<tr><td>13</td><td>பைப் டிரான்ஸ்போர்ட்</td><td>₹ {row13 || "____________"}</td></tr>
 
           <tr>
             <td>14</td>
             <td>
-              {formData.pump || ""} பம்பு {formData.HP || ""} HP
+              {formData.pump || "_______"} பம்பு {formData.HP || "_______"} HP
             </td>
-            <td>₹ {row14 || ""}</td>
+            <td>₹ {row14 || "____________"}</td>
           </tr>
 
         </tbody>
