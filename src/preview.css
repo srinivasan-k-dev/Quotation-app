@@ -1,42 +1,27 @@
+/* 🔥 PAGE (Perfect A4 fit) */
 .page {
   width: 760px;
-  height: 1080px;   /* 🔥 FIXED (not min-height) */
-  margin: 0 auto;   /* 🔥 remove extra vertical margin */
-  padding: 10px;    /* 🔥 reduce */
+  height: 1050px;   /* 🔥 reduced to ensure single page */
+  margin: 0 auto;
+  padding: 12px;
   border: 1px solid #000;
   font-family: "Noto Sans Tamil", sans-serif;
   box-sizing: border-box;
-  overflow: hidden; /* 🔥 prevent spill */
+  position: relative;   /* 🔥 important for footer positioning */
+  overflow: hidden;
 }
 
+/* 🔥 Navbar download button (keep same) */
 .download-btn {
   padding: 8px 14px;
   background-color: #00b894;
   color: white;
-
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.div {
- display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  background-color: #1e1e1e;
-  padding: 10px;
-  border-bottom: 2px solid #444;
-}
-
-/* Print fix */
-@media print {
-  body {
-    margin: 0;
-  }
-}
-
-/* Header */
+/* 🔥 Header */
 .header {
   text-align: center;
 }
@@ -44,10 +29,10 @@
 .top-line {
   display: flex;
   justify-content: space-between;
-  font-size: 13px; /* slightly reduced */
+  font-size: 13px;
 }
 
-/* Notice */
+/* 🔥 Notice */
 .notice {
   border: 1px solid red;
   padding: 6px;
@@ -57,22 +42,24 @@
   font-size: 13px;
 }
 
-/* Quotation label */
+/* 🔥 Quotation badge */
 .quotation {
   background: red;
   color: white;
   display: inline-block;
-  padding: 4px 8px;
+  padding: 4px 10px;
   font-size: 14px;
+  margin-top: 4px;
 }
 
-/* Info */
+/* 🔥 Info */
 .info {
   margin: 10px 0;
   font-size: 14px;
+  line-height: 1.5;
 }
 
-/* Details row */
+/* 🔥 Details row */
 .details {
   display: flex;
   justify-content: space-between;
@@ -80,27 +67,63 @@
   font-size: 14px;
 }
 
-/* Total */
+/* 🔥 TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 5px;
+}
+
+/* Column control */
+th:nth-child(1),
+td:nth-child(1) {
+  width: 35px;   /* 🔥 tighter serial */
+  text-align: center;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  width: auto;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  width: 75px;   /* 🔥 tighter amount */
+  text-align: right;
+}
+
+/* Borders */
+table, th, td {
+  border: 1px solid black;
+}
+
+/* Cell style */
+th, td {
+  padding: 4px;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
+/* Amount column */
+td:nth-child(3) {
+  text-align: right;
+  font-weight: 600;
+}
+
+/* 🔥 TOTAL */
 .total {
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: right;
   font-weight: bold;
   font-size: 15px;
 }
 
-/* Footer */
-.footer {
-  margin-top: 15px;
-  text-align: center;
-  font-size: 13px;
-}
-
-/* Borewell name (right aligned) */
+/* 🔥 SIGNATURE (move nicely above footer) */
 .borewellName {
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   gap: 6px;
   font-weight: bold;
   font-size: 14px;
@@ -111,51 +134,33 @@
   margin: 0;
 }
 
+/* 🔥 FOOTER SECTION (fixed bottom placement) */
+.footer-section {
+  position: absolute;
+  bottom: 20px;     /* 🔥 pushes content down nicely */
+  left: 12px;
+  right: 12px;
+}
+
 /* Footer above */
 .footer-above {
-  margin-top: 10px;
   font-size: 13px;
 }
 
 .footer-above p {
   margin: 3px 0;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed; /* important */
-}
 
-/* 🔥 Control column widths */
-th:nth-child(1),
-td:nth-child(1) {
-  width: 40px;       /* Serial No (small) */
+/* Final footer */
+.footer {
+  margin-top: 8px;
   text-align: center;
-}
-
-th:nth-child(2),
-td:nth-child(2) {
-  width: auto;       /* Details (takes max space) */
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-  width: 80px;       /* Amount (small) */
-  text-align: right;
-}
-
-/* Borders */
-table, th, td {
-  border: 1px solid black;
-}
-
-/* Keep your existing padding */
-th, td {
-  padding: 4px;
   font-size: 13px;
-  word-wrap: break-word;
 }
-td:nth-child(3) {
-  text-align: right;
-  font-weight: 500;
+
+/* 🔥 Print fix */
+@media print {
+  body {
+    margin: 0;
+  }
 }
