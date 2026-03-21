@@ -26,12 +26,15 @@ form p {
 /* 🔥 Inputs */
 form input {
   width: 100%;
-  padding: 14px;        /* 🔥 bigger touch area */
-  font-size: 16px;      /* 🔥 readable */
+  padding: 14px;
+  font-size: 16px;
   border: 1px solid #bbb;
   border-radius: 8px;
   outline: none;
   background: #f9f9f9;
+
+  /* ✅ ADD THIS */
+  transition: all 0.25s ease;
 }
 
 /* 🔥 Focus (clear highlight) */
@@ -86,4 +89,9 @@ form input + p {
   form button {
     font-size: 16px;
   }
+}
+form input:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
 }
