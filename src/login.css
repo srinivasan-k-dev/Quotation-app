@@ -1,0 +1,79 @@
+/* 🔥 Full screen center */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* 🔥 Card */
+.login-box {
+  width: 100%;
+  max-width: 350px;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* 🔥 Title */
+.login-box h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #222;
+}
+
+/* 🔥 Inputs */
+.login-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+/* Focus */
+.login-box input:focus {
+  border-color: #007bff;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* 🔥 Button */
+.login-box button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Hover */
+.login-box button:hover {
+  background: #0056b3;
+}
+
+/* Active click */
+.login-box button:active {
+  transform: scale(0.98);
+}
+
+/* 🔥 Mobile */
+@media (max-width: 400px) {
+  .login-box {
+    margin: 10px;
+    padding: 20px;
+  }
+}

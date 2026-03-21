@@ -20,7 +20,9 @@ const Navbar = ({ onLogout }) => {
         <img src={previewImg} alt="Preview" />
         <span>Preview</span>
       </button>
-
+<button className="download-btn" onClick={onLogout}>
+  Logout
+</button>
 
     </div>
   );
