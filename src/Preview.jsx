@@ -111,56 +111,56 @@ const downloadPDF = () => {
             <td>
               {formData.inch || "____"} இஞ்ச் போர் 1 அடிக்கு ரூ {formData.veetham || "____"} வீதம் {formData.adi || "____"} அடிக்கு
             </td>
-            <td>₹ {formatINR(row1) || "____________"}</td>
+            <td>₹ {formatINR(row1) || "___________"}</td>
           </tr>
 
           <tr>
             <td>2</td>
             <td>ஜல்லி(விருத்‌‌‌தாச்‌‌‌சலம்‌‌‌) {formData.jalli || "__________"}</td> 
-            <td>₹ {formatINR(row2) || "____________"}</td>
+            <td>₹ {formatINR(row2) || "___________"}</td>
           </tr>
 
           <tr>
             <td>3</td>
             <td>கம்ப்ரசர் {formData.kamprasar || "_________"} மணி டிரைவர்‌‌‌ படி உட்‌‌‌பட</td>
-            <td>₹ {formatINR(row3) || "____________"}</td>
+            <td>₹ {formatINR(row3) || "___________"}</td>
           </tr>
 
-<tr><td>4</td><td>போர் செட் டிரான்ஸ்போர்ட் சார்ஜ்</td><td>₹ {formatINT(row4) || "____________"}</td></tr>
-<tr><td>5</td><td>மட்டு குழி சார்ஜ்</td><td>₹ {formatINR(row5) || "____________"}</td></tr>
-<tr><td>6</td><td>மட்டு சார்ஜ்(களி மண்‌‌‌)</td><td>₹ {formatINR(row6) || "____________"}</td></tr>
+<tr><td>4</td><td>போர் செட் டிரான்ஸ்போர்ட் சார்ஜ்</td><td>₹ {formatINR(row4) || "___________"}</td></tr>
+<tr><td>5</td><td>மட்டு குழி சார்ஜ்</td><td>₹ {formatINR(row5) || "___________"}</td></tr>
+<tr><td>6</td><td>மட்டு சார்ஜ்(களி மண்‌‌‌)</td><td>₹ {formatINR(row6) || "___________"}</td></tr>
 
           <tr>
             <td>7</td>
             <td>
               {formData.pipe || "________"} பைப் ஒரு மீட்‌‌‌டர்‌‌‌  ரூ {formData.meter || "________"} வீதம்‌‌‌  {formData.meterukku || "________"} மீட்‌‌‌டருக்‌‌‌கு
             </td>
-            <td>₹ {formatINR(row7) || "____________"}</td>
+            <td>₹ {formatINR(row7) || "___________"}</td>
           </tr>
 
           <tr>
             <td>8</td>
             <td>{formData.slad || "________"} அடி பைப்‌‌‌ ஸ்லாட் போடுவதற்‌‌‌கு</td>
-            <td>₹ {formatINR(row8) || "____________"}</td>
+            <td>₹ {formatINR(row8) || "___________"}</td>
           </tr>
 
           <tr>
             <td>9</td>
             <td>{formData.cape || "________"} இஞ்‌‌‌ச்‌‌‌ எண்ட் கேப்</td>
-            <td>₹ {formatINR(row9) || "____________"}</td>
+            <td>₹ {formatINR(row9) || "___________"}</td>
           </tr>
 
-<tr><td>10</td><td>கிளாம்ப் / டாப் கவர்</td><td>₹ {formatINR(row10) || "____________"}</td></tr>
-<tr><td>11</td><td>தண்ணீர் சார்ஜ்</td><td>₹ {formatINR(row11) || "____________"}</td></tr>
-<tr><td>12</td><td>டேங்க் வாடகை மற்‌‌‌றும்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌</td><td>₹ {formatINR(row12) || "____________"}</td></tr>
-<tr><td>13</td><td>பைப் டிரான்ஸ்போர்ட்</td><td>₹ {formatINR(row13) || "____________"}</td></tr>
+<tr><td>10</td><td>கிளாம்ப் / டாப் கவர்</td><td>₹ {formatINR(row10) || "___________"}</td></tr>
+<tr><td>11</td><td>தண்ணீர் சார்ஜ்</td><td>₹ {formatINR(row11) || "___________"}</td></tr>
+<tr><td>12</td><td>டேங்க் வாடகை மற்‌‌‌றும்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌</td><td>₹ {formatINR(row12) || "___________"}</td></tr>
+<tr><td>13</td><td>பைப் டிரான்ஸ்போர்ட்</td><td>₹ {formatINR(row13) || "___________"}</td></tr>
 
           <tr>
             <td>14</td>
             <td>
               {formData.pump || "_______"} பம்பு {formData.HP || "_______"} HP
             </td>
-            <td>₹ {formatINR(row14) || "____________"}</td>
+            <td>₹ {formatINR(row14) || "___________"}</td>
           </tr>
 
         </tbody>
