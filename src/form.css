@@ -1,86 +1,89 @@
-/* 🔥 Global form container */
+/* 🔥 Main Form Container */
 form {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 25px;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 20px;
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: "Noto Sans Tamil", sans-serif;
 }
 
-/* 🔥 Section spacing */
-form p {
-  margin: 10px 0 5px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-}
-
-/* 🔥 Grid layout */
+/* 🔥 One column layout (VERY IMPORTANT for older users) */
 form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Full width elements */
-form p:nth-child(odd),
-form input[type="date"],
-form button {
-  grid-column: span 2;
+/* 🔥 Labels (Tamil text clarity) */
+form p {
+  margin: 12px 0 6px;
+  font-size: 16px;      /* 🔥 bigger text */
+  font-weight: 600;
+  color: #222;
 }
 
 /* 🔥 Inputs */
 form input {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #dcdcdc;
+  padding: 14px;        /* 🔥 bigger touch area */
+  font-size: 16px;      /* 🔥 readable */
+  border: 1px solid #bbb;
   border-radius: 8px;
-  font-size: 14px;
-  transition: all 0.2s ease;
   outline: none;
+  background: #f9f9f9;
 }
 
-/* Focus effect */
+/* 🔥 Focus (clear highlight) */
 form input:focus {
   border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+  background: #fff;
 }
 
-/* Number input alignment */
+/* 🔥 Number alignment */
 form input[type="number"] {
   text-align: right;
 }
 
 /* 🔥 Button */
 form button {
-  margin-top: 15px;
-  padding: 12px;
-  background: linear-gradient(135deg, #007bff, #0056b3);
+  margin-top: 20px;
+  padding: 14px;
+  font-size: 18px;     /* 🔥 BIG button */
+  font-weight: bold;
+  background: #007bff;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-/* Button hover */
-form button:hover {
-  background: linear-gradient(135deg, #0056b3, #003f88);
+/* 🔥 Button press effect */
+form button:active {
+  background: #0056b3;
 }
 
-/* 🔥 Mobile responsive */
+/* 🔥 Section spacing (group feel) */
+form input + p {
+  margin-top: 18px;
+}
+
+/* 🔥 Mobile optimization */
 @media (max-width: 600px) {
   form {
-    grid-template-columns: 1fr;
+    padding: 15px;
   }
 
-  form p,
-  form input,
+  form p {
+    font-size: 15px;
+  }
+
+  form input {
+    font-size: 15px;
+    padding: 12px;
+  }
+
   form button {
-    grid-column: span 1 !important;
+    font-size: 16px;
   }
 }
