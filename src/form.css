@@ -1,97 +1,455 @@
-/* 🔥 Main Form Container */
-form {
-  max-width: 600px;
-  margin: 15px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-family: "Noto Sans Tamil", sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* =============================================
+   CSS VARIABLES
+   ============================================= */
+:root {
+  --primary: #1a6ef5;
+  --primary-dark: #1254c4;
+  --primary-light: #e8f0fe;
+  --accent: #00c896;
+  --surface: #ffffff;
+  --surface-alt: #f4f7ff;
+  --border: #dde3f0;
+  --border-focus: #1a6ef5;
+  --text-heading: #0f1b35;
+  --text-label: #2d3a55;
+  --text-placeholder: #9ba5bb;
+  --shadow-sm: 0 2px 8px rgba(26, 110, 245, 0.08);
+  --shadow-md: 0 4px 20px rgba(26, 110, 245, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(26, 110, 245, 0.18);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 🔥 One column layout (VERY IMPORTANT for older users) */
+/* =============================================
+   GLOBAL RESET
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================
+   PAGE BACKGROUND
+   ============================================= */
+body {
+  background: linear-gradient(135deg, #e8f0fe 0%, #f0faf7 50%, #eef2ff 100%);
+  min-height: 100vh;
+  font-family: 'Noto Sans Tamil', 'Poppins', sans-serif;
+  padding: 24px 16px 48px;
+}
+
+/* =============================================
+   FORM WRAPPER CARD
+   ============================================= */
 form {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
-/* 🔥 Labels (Tamil text clarity) */
-form p {
-  margin: 12px 0 6px;
-  font-size: 16px;      /* 🔥 bigger text */
-  font-weight: 600;
-  color: #222;
+/* =============================================
+   FORM HEADER BANNER
+   ============================================= */
+form::before {
+  content: '';
+  display: block;
+  height: 6px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+  flex-shrink: 0;
 }
 
-/* 🔥 Inputs */
+/* =============================================
+   INNER PADDING WRAPPER
+   ============================================= */
+form > *:not(:first-child) {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+/* =============================================
+   SECTION GROUPS (visual card grouping)
+   ============================================= */
+.form-section {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 20px 28px 0;
+}
+
+.form-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.form-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* =============================================
+   FIELD WRAPPER (label + input pair)
+   ============================================= */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 18px;
+}
+
+.field-group:last-child {
+  margin-bottom: 0;
+}
+
+/* =============================================
+   LABELS
+   ============================================= */
+form label,
+form p {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-label);
+  line-height: 1.4;
+  font-family: 'Noto Sans Tamil', sans-serif;
+}
+
+/* =============================================
+   INPUTS
+   ============================================= */
+form input[type="text"],
+form input[type="number"],
+form input[type="email"],
+form input[type="tel"],
 form input {
   width: 100%;
-  padding: 14px;
-  font-size: 16px;
-  border: 1px solid #bbb;
-  border-radius: 8px;
+  padding: 13px 16px;
+  font-size: 15px;
+  font-family: 'Noto Sans Tamil', 'Poppins', sans-serif;
+  color: var(--text-heading);
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
   outline: none;
-  background: #f9f9f9;
-
-  /* ✅ ADD THIS */
-  transition: all 0.25s ease;
+  transition: border-color var(--transition),
+              background var(--transition),
+              box-shadow var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-/* 🔥 Focus (clear highlight) */
+form input::placeholder {
+  color: var(--text-placeholder);
+  font-weight: 400;
+}
+
+form input:hover {
+  border-color: #a0b4e0;
+}
+
 form input:focus {
-  border-color: #007bff;
-  background: #fff;
+  border-color: var(--border-focus);
+  background: var(--surface);
+  box-shadow: var(--shadow-focus);
 }
 
-/* 🔥 Number alignment */
-form input[type="number"] {
-  text-align: right;
-}
-
-/* 🔥 Button */
-form button {
-  margin-top: 20px;
-  padding: 14px;
-  font-size: 18px;     /* 🔥 BIG button */
-  font-weight: bold;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
+/* =============================================
+   SELECT DROPDOWN
+   ============================================= */
+form select {
+  width: 100%;
+  padding: 13px 40px 13px 16px;
+  font-size: 15px;
+  font-family: 'Noto Sans Tamil', 'Poppins', sans-serif;
+  color: var(--text-heading);
+  background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231a6ef5' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-/* 🔥 Button press effect */
+form select:focus {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+/* =============================================
+   TWO-COLUMN GRID (for small paired fields)
+   ============================================= */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.field-row .field-group {
+  margin-bottom: 0;
+}
+
+/* =============================================
+   INPUT WITH UNIT BADGE (e.g. ரூ, மீட்டர்)
+   ============================================= */
+.input-with-unit {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-unit input {
+  padding-right: 52px;
+}
+
+.input-unit {
+  position: absolute;
+  right: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  pointer-events: none;
+  background: var(--primary-light);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+/* =============================================
+   REQUIRED ASTERISK
+   ============================================= */
+.required::after {
+  content: ' *';
+  color: #e63946;
+}
+
+/* =============================================
+   FORM TOP PADDING
+   ============================================= */
+.form-body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   SUBMIT BUTTON
+   ============================================= */
+.form-footer {
+  padding: 24px 28px 32px;
+  margin-top: 8px;
+}
+
+form button[type="submit"],
+form button {
+  width: 100%;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Noto Sans Tamil', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--primary) 0%, #1254c4 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 16px rgba(26, 110, 245, 0.35);
+  transition: transform var(--transition),
+              box-shadow var(--transition),
+              background var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+form button[type="submit"]::after,
+form button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+form button[type="submit"]:hover,
+form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 110, 245, 0.4);
+}
+
+form button[type="submit"]:hover::after,
+form button:hover::after {
+  opacity: 1;
+}
+
+form button[type="submit"]:active,
 form button:active {
-  background: #0056b3;
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(26, 110, 245, 0.3);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #0e3f9c 100%);
 }
 
-/* 🔥 Section spacing (group feel) */
-form input + p {
-  margin-top: 18px;
+/* =============================================
+   DIVIDER
+   ============================================= */
+.form-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0 20px;
 }
 
-/* 🔥 Mobile optimization */
-@media (max-width: 600px) {
+/* =============================================
+   VALIDATION STATES
+   ============================================= */
+form input:invalid:not(:placeholder-shown) {
+  border-color: #e63946;
+}
+
+form input:valid:not(:placeholder-shown) {
+  border-color: var(--accent);
+}
+
+/* =============================================
+   MOBILE RESPONSIVE — 480px and below
+   ============================================= */
+@media (max-width: 480px) {
+  body {
+    padding: 12px 8px 40px;
+  }
+
   form {
-    padding: 15px;
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 2px 16px rgba(26, 110, 245, 0.10);
   }
 
+  form > *:not(:first-child) {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .form-body {
+    padding: 18px 18px;
+  }
+
+  .form-footer {
+    padding: 16px 18px 28px;
+  }
+
+  .form-section {
+    margin: 16px 18px 0;
+    padding: 16px;
+  }
+
+  form label,
   form p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
-  form input {
-    font-size: 15px;
-    padding: 12px;
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="email"],
+  form input[type="tel"],
+  form input,
+  form select {
+    font-size: 14px;
+    padding: 12px 14px;
   }
 
+  /* Stack two-column grid on very small screens */
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  form button[type="submit"],
   form button {
     font-size: 16px;
+    padding: 15px;
   }
 }
-form input:focus {
-  border-color: #007bff;
-  background: #fff;
-  box-shadow: 0 0 6px rgba(0, 123, 255, 0.25);
+
+/* =============================================
+   TABLET — 481px to 768px
+   ============================================= */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    padding: 20px 16px 48px;
+  }
+
+  form {
+    border-radius: 18px;
+  }
+
+  form > *:not(:first-child) {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .form-body {
+    padding: 22px 24px;
+  }
+
+  .form-footer {
+    padding: 20px 24px 30px;
+  }
+
+  .form-section {
+    margin: 18px 24px 0;
+  }
+}
+
+/* =============================================
+   ANIMATION — subtle fade-in on load
+   ============================================= */
+@keyframes formFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form {
+  animation: formFadeIn 0.45s ease both;
+}
+
+/* =============================================
+   SCROLLBAR (webkit)
+   ============================================= */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5d0e8;
+  border-radius: 99px;
 }

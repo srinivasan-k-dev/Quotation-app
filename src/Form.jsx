@@ -1,78 +1,397 @@
-import './form.css'
+import './form.css';
 import { useNavigate } from "react-router-dom";
 
 function Form({ formData, setFormData, onSubmit }) {
   const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-}
   return (
-<form
-  onSubmit={(e) => {
-    e.preventDefault();
-    onSubmit(formData);      // 🔥 send data
-    navigate("/preview");    // 🔥 go to preview page
-  }}
->
-      <p>உங்‌‌‌களின்‌‌‌ பெயர்</p>
-      <input type="text" name="name" value={formData.name} onChange={handleChange}/>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(formData);
+        navigate("/preview");
+      }}
+    >
+      {/* ── PERSONAL INFO ─────────────────────────── */}
+      <div className="form-body">
 
-      <p>முகவரி</p>
-      <input type="text" name="address" value={formData.address} onChange={handleChange}/>
+        <div className="form-section">
+          <div className="form-section-title">தனிப்பட்ட தகவல்</div>
 
-      <p>தேதி</p>
-      <input type="date" name="date" value={formData.date} onChange={handleChange}/>
+          <div className="field-group">
+            <label className="required">உங்களின் பெயர்</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="பெயரை உள்ளிடவும்"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
 
-      <p>போர்‌‌‌வேலின்‌‌‌ சைஸ்‌‌‌ என்‌‌‌ன?</p>
-      <input type="number" name="size" value={formData.size} onChange={handleChange}/>
+          <div className="field-group">
+            <label className="required">முகவரி</label>
+            <input
+              type="text"
+              name="address"
+              placeholder="முகவரியை உள்ளிடவும்"
+              value={formData.address}
+              onChange={handleChange}
+            />
+          </div>
 
-<p>போர்‌‌‌வேலின்‌‌‌ ஆழம்‌‌‌ என்‌‌‌ன?</p>     
-<input type="number" name="depth" value={formData.depth} onChange={handleChange}/>
-<p>எத்‌‌‌தனை இஞ்‌‌‌ச்‌‌‌?</p>      
-<input type="number" name="inch" value={formData.inch} onChange={handleChange}/>
-<p>போர்‌‌‌ 1 அடிக்‌‌‌கு எவ்‌‌‌வளவு ரூ?</p>      
-<input type="number" name="veetham" value={formData.veetham} onChange={handleChange}/>
-<p>எத்‌‌‌தனை அடி போர்‌‌‌?</p>      
-<input type="number" name="adi" value={formData.adi} onChange={handleChange}/>
-<p>எவ்‌‌‌வளவு ஜல்‌‌‌லி?</p>      
-<input type="text" name="jalli" value={formData.jalli} onChange={handleChange}/>
-<p>எத்‌‌‌தனை மணி நேரம்‌‌‌ கம்‌‌‌ப்‌‌‌ரசர்‌‌‌ ஓட வேண்‌‌‌டும்‌‌‌?</p>      
-<input type="number" name="kamprasar" value={formData.kamprasar} onChange={handleChange}/>
-<p>போர்‌‌‌ செட்‌‌‌ டிரன்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌ சார்‌‌‌ஜ்‌‌‌ எவ்‌‌‌வளவு?</p>      
-<input type="number" name="transport" value={formData.transport || ""} onChange={handleChange} />
-<p>மட்‌‌‌டு குழி சார்‌‌‌ஜ்‌‌‌ எவ்‌‌‌வளவு?</p>      
-<input type="number" name="mattukuli" value={formData.mattukuli || ""} onChange={handleChange} />
-<p>மட்‌‌‌டு சார்‌‌‌ஜ்‌‌‌ எவ்‌‌‌வளவு?</p>      
-<input type="number" name="mattu" value={formData.mattu || ""} onChange={handleChange} />
-<p>பைப்‌‌‌ அளவு என்‌‌‌ன?</p>
-<input type="number" name="pipe" value={formData.pipe} onChange={handleChange}/>
-<p>மீட்‌‌‌டர்‌‌‌ ஒன்‌‌‌றுக்‌‌‌கு ரூ எவ்‌‌‌வளவு?</p>
-<input type="number" name="meter" value={formData.meter} onChange={handleChange}/>
-<p>எத்‌‌‌தனை மீட்‌‌‌டர்‌‌‌?</p>
-<input type="number" name="meterukku" value={formData.meterukku} onChange={handleChange}/>
-<p>பைப்‌‌‌ ஸ்‌‌‌லாட்‌‌‌ போடுவதற்‌‌‌கு எத்‌‌‌தனை அடி?</p>
-<input type="number" name="slad" value={formData.slad} onChange={handleChange}/>
-<p>எவ்‌‌‌வளவு இஞ்‌‌‌சி எண்‌‌‌ட்‌‌‌ கேப்‌‌‌ அளவு?</p>
-<input type="number" name="cape" value={formData.cape} onChange={handleChange}/>
-<p>கிளாம்‌‌‌ப்‌‌‌ / டாப்‌‌‌ கவர்‌‌‌ ரூ(மதிப்‌‌‌பு)?</p>
-<input type="number" name="clamp" value={formData.clamp || ""} onChange={handleChange} />
-<p>தண்‌‌‌ணீர்‌‌‌ சார்‌‌‌ஜ்‌‌‌ எவ்‌‌‌வளவு?</p>
-<input type="number" name="water" value={formData.water || ""} onChange={handleChange} />
-<p>டேங்‌‌‌க்‌‌‌ வாடகை மற்‌‌‌றும்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌ சார்‌‌‌ஜ்‌‌‌ எவ்‌‌‌வளவு?</p>
-<input type="number" name="tank" value={formData.tank || ""} onChange={handleChange} />
-<p>பைப்‌‌‌ டிரான்‌‌‌ஸ்‌‌‌போர்‌‌‌ட்‌‌‌ சார்‌‌‌ஜ்‌‌‌ எவ்‌‌‌வளவு?</p>
-<input type="number" name="pipeTransport" value={formData.pipeTransport || ""} onChange={handleChange} />
-<p>பம்‌‌‌பு என்‌‌‌ன?</p>
-<input type="number" name="pump" value={formData.pump} onChange={handleChange}/>
-<p>H.P என்‌‌‌ன?</p>
-<input type="number" name="HP" value={formData.HP} onChange={handleChange}/>
-<button type="submit">Submit</button>
-</form>
+          <div className="field-group">
+            <label>தேதி</label>
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        {/* ── BORE WELL DETAILS ─────────────────────── */}
+        <div className="form-section">
+          <div className="form-section-title">போர்வேல் விவரங்கள்</div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>போர்வேலின் சைஸ்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="size"
+                  placeholder="0"
+                  value={formData.size}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">இஞ்ச்</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>போர்வேலின் ஆழம்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="depth"
+                  placeholder="0"
+                  value={formData.depth}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">அடி</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>எத்தனை இஞ்ச்?</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="inch"
+                  placeholder="0"
+                  value={formData.inch}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">இஞ்ச்</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>எத்தனை அடி போர்?</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="adi"
+                  placeholder="0"
+                  value={formData.adi}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">அடி</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>போர் 1 அடிக்கு வீதம்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="veetham"
+                  placeholder="0"
+                  value={formData.veetham}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>எவ்வளவு ஜல்லி?</label>
+              <input
+                type="text"
+                name="jalli"
+                placeholder="அளவு"
+                value={formData.jalli}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div className="field-group">
+            <label>கம்ப்ரசர் ஓட வேண்டிய நேரம்</label>
+            <div className="input-with-unit">
+              <input
+                type="number"
+                name="kamprasar"
+                placeholder="0"
+                value={formData.kamprasar}
+                onChange={handleChange}
+              />
+              <span className="input-unit">மணி</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ── TRANSPORT & CHARGES ───────────────────── */}
+        <div className="form-section">
+          <div className="form-section-title">கட்டணங்கள் & போக்குவரத்து</div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>போர் செட் டிரன்ஸ்போர்ட்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="transport"
+                  placeholder="0"
+                  value={formData.transport || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>மட்டு குழி சார்ஜ்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="mattukuli"
+                  placeholder="0"
+                  value={formData.mattukuli || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>மட்டு சார்ஜ்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="mattu"
+                  placeholder="0"
+                  value={formData.mattu || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>தண்ணீர் சார்ஜ்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="water"
+                  placeholder="0"
+                  value={formData.water || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>டேங்க் வாடகை & டிரான்ஸ்போர்ட்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="tank"
+                  placeholder="0"
+                  value={formData.tank || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>கிளாம்ப் / டாப் கவர் மதிப்பு</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="clamp"
+                  placeholder="0"
+                  value={formData.clamp || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── PIPE DETAILS ──────────────────────────── */}
+        <div className="form-section">
+          <div className="form-section-title">பைப் விவரங்கள்</div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>பைப் அளவு</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="pipe"
+                  placeholder="0"
+                  value={formData.pipe}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">இஞ்ச்</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>மீட்டர் ஒன்றுக்கு வீதம்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="meter"
+                  placeholder="0"
+                  value={formData.meter}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>எத்தனை மீட்டர்?</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="meterukku"
+                  placeholder="0"
+                  value={formData.meterukku}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">மீ</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>பைப் ஸ்லாட் அடி</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="slad"
+                  placeholder="0"
+                  value={formData.slad}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">அடி</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>இஞ்சி எண்ட் கேப் அளவு</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="cape"
+                  placeholder="0"
+                  value={formData.cape}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">இஞ்ச்</span>
+              </div>
+            </div>
+
+            <div className="field-group">
+              <label>பைப் டிரான்ஸ்போர்ட் சார்ஜ்</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="pipeTransport"
+                  placeholder="0"
+                  value={formData.pipeTransport || ""}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">ரூ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── PUMP DETAILS ──────────────────────────── */}
+        <div className="form-section">
+          <div className="form-section-title">பம்பு விவரங்கள்</div>
+
+          <div className="field-row">
+            <div className="field-group">
+              <label>பம்பு என்ன?</label>
+              <input
+                type="number"
+                name="pump"
+                placeholder="0"
+                value={formData.pump}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="field-group">
+              <label>H.P என்ன?</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="HP"
+                  placeholder="0"
+                  value={formData.HP}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">HP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>{/* end .form-body */}
+
+      {/* ── SUBMIT ────────────────────────────────── */}
+      <div className="form-footer">
+        <button type="submit">சமர்ப்பி</button>
+      </div>
+
+    </form>
   );
 }
 
