@@ -15,7 +15,7 @@ function Preview({ formData = {} }) {
 
   // ── Row calculations ──────────────────────────
   const row1  = num(formData.veetham) * num(formData.adi);
-  const row2  = num(formData.jalli);
+  const row2  = num(formData.jallithogai);
 const row15 = num(formData.row3);
   const row4  = num(formData.transport);
   const row5  = num(formData.mattukuli);
@@ -43,7 +43,7 @@ const row15 = num(formData.row3);
       html2canvas: { scale: 3, useCORS: true },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
-    html2pdf().set(opt).from(element).save();
+    html2pdf().set(opt).from(element).save("file.pdf");
   };
 
   return (

@@ -2,5 +2,12 @@
   "appId": "com.quotation.app",
   "appName": "Quotation-app",
   "webDir": "dist",
-  "bundledWebRuntime": false
+  "bundledWebRuntime": false,
+  "plugins": {
+    "LiveUpdates": {
+      "appId": "1cf05ebd",
+      "channel": "production",
+      "autoUpdate": true
+    }
+  }
 }

@@ -152,12 +152,12 @@ function Form({ formData, setFormData, onSubmit }) {
             </div>
 
             <div className="field-group">
-              <label>எவ்வளவு ஜல்லி?</label>
+              <label>ஜல்லி தொகை</label>
               <input
-                type="text"
-                name="jalli"
-                placeholder="அளவு"
-                value={formData.jalli}
+                type="number"
+                name="jallithogai"
+                placeholder="தொகை"
+                value={formData.jallithogai}
                 onChange={handleChange}
               />
             </div>

@@ -6,6 +6,11 @@
   justify-content: center;
   padding: 12px;
 }
+#pdf-content {
+  width: 210mm;
+  min-height: 297mm;
+  transform-origin: top left;
+}
 
 #pdf-content {
   font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
