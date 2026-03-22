@@ -165,7 +165,19 @@ function Form({ formData, setFormData, onSubmit }) {
               <span className="input-unit">மணி</span>
             </div>
           </div>
-
+<div className="field-group">
+            <label>கம்ப்ரசர் ஓட வேண்டிய நேரம்</label>
+            <div className="input-with-unit">
+              <input
+                type="number"
+                name="kamprasar"
+                placeholder="0"
+                value={formData.kamprasar}
+                onChange={handleChange}
+              />
+              <span className="input-unit">மணி</span>
+            </div>
+          </div>
 
         </div>
 
@@ -388,11 +400,15 @@ function Form({ formData, setFormData, onSubmit }) {
                 <span className="input-unit">HP</span>
               </div>
             </div>
-          </div>
+</div>
         </div>
+<div className="form-section">
+          <div className="form-section-title">முன்‌‌‌பணம்‌‌‌ விவரம்‌‌‌</div>
+
 <div className="field-row">
 <div className="field-group">
 <label>எவ்‌‌‌வளவு முன்‌‌‌பணம்‌‌‌ பெற்‌‌‌றது</label>
+<div className="input-with-unit">
 <input
 type="number"
 name="advance"
@@ -400,6 +416,9 @@ placeholder="தொகை"
 value={formData.advance}
 onChange={handleChange}
 />
+<span className="input-unit">தொகை</span>
+              </div>
+</div>
 </div>
 </div>
       </div>{/* end .form-body */}
