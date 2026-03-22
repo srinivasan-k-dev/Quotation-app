@@ -7,6 +7,10 @@
   padding: 12px;
 }
 
+#pdf-content {
+  font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
+}
+
 .download-btn {
   padding: 8px 20px;
   background-color: #00b894;

@@ -16,7 +16,7 @@ function Preview({ formData = {} }) {
   // ── Row calculations ──────────────────────────
   const row1  = num(formData.veetham) * num(formData.adi);
   const row2  = 130 * num(formData.jalli);
-  {/*const row3  = 2500 * num(formData.kamprasar);*/}
+const row15 = num(formData.row3);
   const row4  = num(formData.transport);
   const row5  = num(formData.mattukuli);
   const row6  = num(formData.mattu);
@@ -30,7 +30,7 @@ function Preview({ formData = {} }) {
   const row14 = num(formData.pump);
 
   const total =
-    row1 + row2 + row3 + row4 + row5 + row6 +
+    row1 + row2 + row15 + row4 + row5 + row6 +
     row7 + row8 + row9 + row10 + row11 + row12 +
     row13 + row14;
 
@@ -59,8 +59,10 @@ function Preview({ formData = {} }) {
 
         {/* ── HEADER ─────────────────────────────── */}
         <p className="top-line">
-          <span>செல் : 9442998070</span>
-          <span><p style={{ color: "red" }}>SUPERVISOR: M.K.DINESH </p>செல் : 6379794646</span>
+          <span style={{ color: "red"}}>செல் : 9442998070</span>
+<div>
+          <span style={{ color: "red" }}>SUPERVISOR: M.K.DINESH செல் : 6379794646</span>
+</div>
         </p>
 
         <p className="deity-line">உ</p>
@@ -133,7 +135,7 @@ function Preview({ formData = {} }) {
             <tr>
               <td>3</td>
               <td>கம்ப்ரசர் {formData.kamprasar || "___"} மணி நேரம் டிரைவர் படி உட்பட</td>
-              <td>{row3 ? `₹ ${formatINR(row3)}` : ""}</td>
+              <td>{row15 ? `₹ ${formatINR(row15)}` : ""}</td>
             </tr>
 
             <tr>
