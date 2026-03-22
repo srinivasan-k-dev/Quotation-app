@@ -60,7 +60,7 @@ function Preview({ formData = {} }) {
         {/* ── HEADER ─────────────────────────────── */}
         <p className="top-line">
           <span>செல் : 9442998070</span>
-          <span>செல் : 9443549457</span>
+          <span><p style={{ color: "red" }}>SUPERVISOR: M.K.DINESH </p>செல் : 6379794646</span>
         </p>
 
         <p className="deity-line">உ</p>
@@ -225,7 +225,7 @@ function Preview({ formData = {} }) {
         {/* ── FOOTER ──────────────────────────────── */}
         <div className="footer-section">
           <div className="footer-above">
-            <p>இந்த வேலைக்கு ரூ. ________________________________</p>
+            <p>இந்த வேலைக்கு ரூ.{formData.advance || "________________________________"}</p>
             <p>முன் பணமாக பெற்றுக் கொண்டேன்.</p>
           </div>
 

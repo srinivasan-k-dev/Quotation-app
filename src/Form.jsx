@@ -90,20 +90,25 @@ function Form({ formData, setFormData, onSubmit }) {
             </div>
           </div>
 
-          <div className="field-row">
-            <div className="field-group">
-              <label>எத்தனை இஞ்ச்?</label>
-              <div className="input-with-unit">
-                <input
-                  type="number"
-                  name="inch"
-                  placeholder="0"
-                  value={formData.inch}
-                  onChange={handleChange}
-                />
-                <span className="input-unit">இஞ்ச்</span>
-              </div>
-            </div>
+<div className="field-row">
+  <div className="field-group">
+    <label>எத்தனை இஞ்ச்?</label>
+    <div className="input-with-unit">
+      <select
+        name="inch"
+        value={formData.inch}
+        onChange={handleChange}
+      >
+        <option value="">Select</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="7.5">7.5</option>
+        <option value="8">8</option>
+      </select>
+      <span className="input-unit">இஞ்ச்</span>
+    </div>
+  </div>
 
             <div className="field-group">
               <label>எத்தனை அடி போர்?</label>
@@ -160,6 +165,8 @@ function Form({ formData, setFormData, onSubmit }) {
               <span className="input-unit">மணி</span>
             </div>
           </div>
+
+
         </div>
 
         {/* ── TRANSPORT & CHARGES ───────────────────── */}
@@ -383,7 +390,18 @@ function Form({ formData, setFormData, onSubmit }) {
             </div>
           </div>
         </div>
-
+<div className="field-row">
+<div className="field-group">
+<label>எவ்‌‌‌வளவு முன்‌‌‌பணம்‌‌‌ பெற்‌‌‌றது</label>
+<input
+type="number"
+name="advance"
+placeholder="தொகை"
+value={formData.advance}
+onChange={handleChange}
+/>
+</div>
+</div>
       </div>{/* end .form-body */}
 
       {/* ── SUBMIT ────────────────────────────────── */}

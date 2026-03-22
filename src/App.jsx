@@ -35,6 +35,7 @@ function App() {
     pipeTransport: "",
     pump: "",
     HP: "",
+advance: "",
   });
 
   const [submittedData, setSubmittedData] = useState({});
