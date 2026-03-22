@@ -36,6 +36,7 @@ function App() {
     pump: "",
     HP: "",
 advance: "",
+row3: "",
   });
 
   const [submittedData, setSubmittedData] = useState({});

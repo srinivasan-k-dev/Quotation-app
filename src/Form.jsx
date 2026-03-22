@@ -166,16 +166,16 @@ function Form({ formData, setFormData, onSubmit }) {
             </div>
           </div>
 <div className="field-group">
-            <label>கம்ப்ரசர் ஓட வேண்டிய நேரம்</label>
+            <label>கம்ப்ரசர் தொகை</label>
             <div className="input-with-unit">
               <input
                 type="number"
-                name="kamprasar"
+                name="row3"
                 placeholder="0"
-                value={formData.kamprasar}
+                value={formData.row3}
                 onChange={handleChange}
               />
-              <span className="input-unit">மணி</span>
+              <span className="input-unit">தொகை</span>
             </div>
           </div>
 
