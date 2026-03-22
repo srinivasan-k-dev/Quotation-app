@@ -20,6 +20,7 @@ function App() {
     veetham: "",
     adi: "",
     jalli: "",
+jallithogai: "",
     kamprasar: "",
     transport: "",
     mattukuli: "",

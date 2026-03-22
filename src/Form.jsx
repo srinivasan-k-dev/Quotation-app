@@ -150,6 +150,17 @@ function Form({ formData, setFormData, onSubmit }) {
                 onChange={handleChange}
               />
             </div>
+
+            <div className="field-group">
+              <label>எவ்வளவு ஜல்லி?</label>
+              <input
+                type="text"
+                name="jalli"
+                placeholder="அளவு"
+                value={formData.jalli}
+                onChange={handleChange}
+              />
+            </div>
           </div>
 
           <div className="field-group">

@@ -1,0 +1,6 @@
+{
+  "appId": "com.quotation.app",
+  "appName": "Quotation-app",
+  "webDir": "build",
+  "bundledWebRuntime": false
+}
