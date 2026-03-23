@@ -33,7 +33,6 @@ const row15 = num(formData.row3);
     row1 + row2 + row15 + row4 + row5 + row6 +
     row7 + row8 + row9 + row10 + row11 + row12 +
     row13 + row14;
-import html2pdf from "html2pdf.js";
 
 const downloadPDF = () => {
   const element = document.getElementById("pdf-content");
