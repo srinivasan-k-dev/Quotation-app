@@ -1,3 +1,4 @@
+import { Filesystem, Directory } from '@capacitor/filesystem';
 import React from "react";
 import "./preview.css";
 import html2pdf from "html2pdf.js";
@@ -33,19 +34,42 @@ const row15 = num(formData.row3);
     row1 + row2 + row15 + row4 + row5 + row6 +
     row7 + row8 + row9 + row10 + row11 + row12 +
     row13 + row14;
+const downloadPDF = async () => {
+  const element = document.getElementById("pdf-content");
 
-  const downloadPDF = () => {
-    const element = document.getElementById("pdf-content");
-    const opt = {
-      margin: 0,
-      filename: "quotation.pdf",
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: { scale: 3, useCORS: true },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-    };
-    html2pdf().set(opt).from(element).save("file.pdf");
+  const opt = {
+    margin: 0,
+    filename: "quotation.pdf",
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: { scale: 3, useCORS: true },
+    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
   };
 
+  try {
+    const pdfBlob = await html2pdf()
+      .set(opt)
+      .from(element)
+      .outputPdf("blob");
+
+    const reader = new FileReader();
+    reader.readAsDataURL(pdfBlob);
+
+    reader.onloadend = async () => {
+      const base64Data = reader.result.split(",")[1];
+
+      await Filesystem.writeFile({
+        path: `quotation-${Date.now()}.pdf`,
+        data: base64Data,
+        directory: Directory.Documents,
+      });
+
+      alert("PDF saved successfully ✅");
+    };
+  } catch (error) {
+    console.error(error);
+    alert("Download failed ❌");
+  }
+};
   return (
     <>
       {/* Download Button */}
