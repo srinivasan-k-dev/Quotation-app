@@ -42,31 +42,56 @@ const downloadPDF = () => {
     return;
   }
 
+  // Temporarily remove border so it doesn't affect page sizing
+  const page = element.querySelector(".page");
+  const originalBorder = page ? page.style.border : null;
+  if (page) page.style.border = "none";
+
   const opt = {
-    margin: 0.5,
+    margin: 0,                          // FIXED: was 0.5 — that extra margin caused page 2
     filename: "quotation.pdf",
     image: { type: "jpeg", quality: 0.98 },
     html2canvas: {
       scale: 2,
       useCORS: true,
-      logging: true
+      logging: false,
+      width: 794,                       // exact A4 pixel width at 96dpi
+      windowWidth: 794
     },
     jsPDF: {
       unit: "mm",
       format: "a4",
       orientation: "portrait"
-    }
+    },
+    pagebreak: { mode: "avoid-all" }   // FIXED: prevents content from splitting to page 2
   };
 
   html2pdf()
     .set(opt)
     .from(element)
+    .toPdf()
+    .get("pdf")
+    .then((pdf) => {
+      // FIXED: force single page by removing any extra pages
+      const totalPages = pdf.internal.getNumberOfPages();
+      if (totalPages > 1) {
+        for (let i = totalPages; i > 1; i--) {
+          pdf.deletePage(i);
+        }
+      }
+    })
     .save()
+    .then(() => {
+      // Restore border after download
+      if (page && originalBorder !== null) page.style.border = originalBorder;
+    })
     .catch(err => {
       console.error(err);
+      if (page && originalBorder !== null) page.style.border = originalBorder;
       alert("Download failed ❌");
     });
 };
+
   return (
     <>
       {/* Download Button */}
