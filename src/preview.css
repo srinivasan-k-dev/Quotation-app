@@ -1,23 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;900&display=swap');
 
-/* ── DOWNLOAD BUTTON ───────────────────────── */
+/* GLOBAL FONT FIX (IMPORTANT FOR ஸ்ரீ) */
+body, #pdf-content, .page {
+  font-family: 'Noto Sans Tamil', 'Latha', 'Vijaya', serif;
+  font-feature-settings: "liga";
+}
+
+/* DOWNLOAD BUTTON */
 .div {
   display: flex;
   justify-content: center;
   padding: 12px;
-}
-body {
-  font-family: 'Noto Sans Tamil', 'Latha', 'Vijaya', serif;
-  font-feature-settings: "liga";
-}
-#pdf-content {
-  width: 210mm;
-  min-height: 297mm;
-  transform-origin: top left;
-}
-
-#pdf-content {
-  font-family: 'Noto Sans Tamil', 'Latha', sans-serif;
 }
 
 .download-btn {
@@ -28,310 +21,214 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  font-family: "Noto Sans Tamil", sans-serif;
 }
 
-/* ── A4 PAGE ───────────────────────────────── */
+/* PDF ROOT */
+#pdf-content {
+  width: 210mm;
+  min-height: 297mm;
+}
+
+/* A4 PAGE */
 .page {
-  width: 794px;
-  height: 1123px;
+  width: 210mm;
+  min-height: 297mm;
   margin: 0 auto;
-  padding: 18px 20px 16px;
+  padding: 12mm 14mm;
   border: 2px solid #000;
-  font-family: "Noto Sans Tamil", sans-serif;
-  box-sizing: border-box;
   background: #fff;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* KEY FIX */
+  box-sizing: border-box;
 }
 
-/* ── TOP PHONES LINE ───────────────────────── */
+
+/* HEADER */
 .top-line {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
-  color: #000;
   margin-bottom: 2px;
 }
 
-/* ── DEITY LINE ────────────────────────────── */
 .deity-line {
   text-align: center;
   font-size: 12px;
-  color: #000;
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
-/* ── COMPANY NAME (big red Tamil) ──────────── */
 .company-name {
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 900;
   color: #c00;
-  margin: 6px 0 4px;
-  line-height: 1.2;
-  letter-spacing: 0.5px;
+  margin: 4px 0;
 }
 
-/* ── ADDRESS ───────────────────────────────── */
 .address {
   text-align: center;
-  font-size: 12.5px;
-  color: #000;
-  margin: 4px 0 8px;
-  line-height: 1.6;
+  font-size: 12px;
+  margin: 4px 0 6px;
 }
 
-/* ── NOTICE BOX ────────────────────────────── */
+/* NOTICE */
 .notice {
   border: 1.5px solid #c00;
-  padding: 7px 10px;
-  margin: 6px 40px;
+  padding: 6px;
+  margin: 6px 30px;
   color: #c00;
   font-weight: 700;
-  font-size: 12.5px;
+  font-size: 12px;
   text-align: center;
-  line-height: 1.6;
 }
 
-/* ── QUOTATION BADGE ───────────────────────── */
+/* QUOTATION BADGE */
+.quotation-wrap {
+  text-align: center;
+  margin-bottom: 6px;
+}
+
 .quotation-badge {
   background: #c00;
   color: #fff;
-  display: inline-block;
-  padding: 4px 18px;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 6px auto 0;
-  letter-spacing: 1px;
-}
-
-.quotation-wrap {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* ── NO. LINE ──────────────────────────────── */
-.no-line {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
+  padding: 3px 14px;
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 4px;
 }
 
-.no-line span {
-  font-size: 15px;
-  font-weight: 900;
-  border-bottom: 1px solid #000;
-  min-width: 60px;
-}
-
-/* ── CUSTOMER INFO ─────────────────────────── */
-.info {
-  margin: 8px 0;
-  font-size: 13.5px;
-  line-height: 1.8;
-}
-
+/* INFO */
 .info p {
   margin: 0;
   border-bottom: 1px solid #aaa;
-  padding: 6px 2px;
-  min-height: 30px;
+  padding: 4px 2px;
+  font-size: 12px;
 }
 
-/* ── DETAILS ROW (bore size / depth / date) ── */
+/* DETAILS */
 .details {
   display: flex;
-  justify-content: space-between;
-  margin: 8px 0;
-  border: 1.5px solid #c00;
   background: #c00;
   color: #fff;
-  font-weight: 700;
-  font-size: 13px;
+  font-size: 12px;
+  margin: 6px 0;
 }
 
 .details > div {
-  padding: 5px 10px;
   flex: 1;
+  padding: 4px;
   text-align: center;
-  border-right: 1.5px solid #fff;
+  border-right: 1px solid #fff;
 }
 
 .details > div:last-child {
   border-right: none;
 }
 
-.details .detail-value {
-  color: #fff;
-  font-weight: 900;
-}
-
-/* ── TABLE ─────────────────────────────────── */
+/* TABLE */
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
-/* Column widths */
-th:nth-child(1), td:nth-child(1) { width: 48px; text-align: center; }
-th:nth-child(2), td:nth-child(2) { width: auto; }
-th:nth-child(3), td:nth-child(3) { width: 100px; text-align: right; }
-
-table, th, td {
+th, td {
   border: 1px solid #000;
+  padding: 2px 5px;
+  font-size: 11.5px;
 }
 
-/* Header row — red background */
-thead tr {
+thead {
   background: #c00;
   color: #fff;
 }
 
-th {
-  padding: 5px 6px;
-  font-size: 13.5px;
-  font-weight: 700;
+td:nth-child(1) {
   text-align: center;
+  width: 40px;
 }
 
-td {
-  padding: 4px 6px;
-  font-size: 13px;
-  word-wrap: break-word;
-  vertical-align: middle;
-}
-
-/* Amount column */
 td:nth-child(3) {
   text-align: right;
+  width: 90px;
   font-weight: 700;
-  font-size: 14px;
-  color: #000;
 }
 
-/* Serial number column */
-td:nth-child(1) {
-  font-weight: 600;
-}
-
-/* Alternate row subtle tint */
-tbody tr:nth-child(even) {
-  background: #fdf5f5;
-}
-
-/* ── TOTAL ROW ──────────────────────────────── */
+/* TOTAL */
 .total-row td {
-  background: #fff3f3;
   font-weight: 900;
-  font-size: 15px;
-  border-top: 2px solid #c00;
+  font-size: 13px;
 }
 
-/* ── TABLE WRAPPER grows to fill space ──────── */
-.table-wrap {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-}
-
-/* ── BOREWELL NAME (signature area) ────────── */
+/* SIGNATURE */
 .borewellName {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 8px;
-  margin-bottom: 6px;
-  gap: 2px;
-}
-
-.borewellName p {
-  margin: 0;
-  font-size: 12.5px;
-  color: #000;
+  margin-top: 6px;
 }
 
 .borewellName h4 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: 900;
   color: #c00;
-}
-
-/* ── FOOTER SECTION ────────────────────────── */
-.footer-section {
-  margin-top: 14px;
-  border-top: 1px solid #ccc;
-  padding-top: 6px;
-  padding-bottom: 2px;
-}
-
-.footer-above {
-  font-size: 12.5px;
-  border: 1px solid #000;
-  padding: 6px 10px;
-  display: inline-block;
-  min-width: 280px;
-  line-height: 1.7;
-}
-
-.footer-above p {
-  margin: 0;
-}
-
-/* ── ROCK CHARGE FOOTER ─────────────────────── */
-.footer {
-  margin-top: 8px;
-  text-align: center;
   font-size: 13px;
+}
+
+/* FOOTER */
+.footer-section {
+  margin-top: 6px;
+margin-bottom: 0;
+}
+
+.footer {
+  text-align: center;
+mqrgin-top: 6px;
+  font-size: 12px;
   font-weight: 700;
-  border: 1.5px solid #c00;
-  padding: 5px;
+  border: 1px solid #c00;
+  padding: 4px;
   color: #c00;
 }
 
-.footer::before {
-  content: '✦ ';
-}
-
-.footer::after {
-  content: ' ✦';
-}
-
-/* ── PRINT ─────────────────────────────────── */
+/* PRINT FIX (VERY IMPORTANT) */
 @media print {
-  body { margin: 0; background: #fff; padding: 0; }
-  .div { display: none; }
-  .page {
-    border: none;
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* CRITICAL */
+    -webkit-print-color-adjust: exact;
+  }
+
+  .div {
+    display: none;
+  }
+
+  #pdf-content {
     width: 210mm;
-    min-height: 297mm;
-    padding: 15mm 18mm;
+    height: 297mm;
+    overflow: hidden; /* PREVENT EXTRA PAGE */
   }
-  .quotation-container {
-    width: 100%;
-    height: auto;
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    border: none;
+    padding: 10mm 12mm;
+    page-break-after: avoid;
     page-break-inside: avoid;
+  }
+
+  table, th, td {
+    font-size: 11.5px;
+    padding: 3px;
+  }
 }
-  }
 
-  table {
-    font-size: 12px; /* reduce size */
-  }
-
-  th, td {
-    padding: 4px; /* tighter spacing */
-  }
-
-  h1, h2, h3 {
-    margin: 5px 0;
-  }
+.table-wrap {
+  flex-grow: 1;
+}
+.footer-above {
+  margin-bottom: 4px; /* tighten */
+}
 
