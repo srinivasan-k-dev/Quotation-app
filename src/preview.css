@@ -6,6 +6,10 @@
   justify-content: center;
   padding: 12px;
 }
+body {
+  font-family: 'Noto Sans Tamil', 'Latha', 'Vijaya', serif;
+  font-feature-settings: "liga";
+}
 #pdf-content {
   width: 210mm;
   min-height: 297mm;
@@ -304,7 +308,7 @@ tbody tr:nth-child(even) {
 
 /* ── PRINT ─────────────────────────────────── */
 @media print {
-  body { margin: 0; background: #fff; }
+  body { margin: 0; background: #fff; padding: 0; }
   .div { display: none; }
   .page {
     border: none;
@@ -312,4 +316,22 @@ tbody tr:nth-child(even) {
     min-height: 297mm;
     padding: 15mm 18mm;
   }
+  .quotation-container {
+    width: 100%;
+    height: auto;
+    page-break-inside: avoid;
 }
+  }
+
+  table {
+    font-size: 12px; /* reduce size */
+  }
+
+  th, td {
+    padding: 4px; /* tighter spacing */
+  }
+
+  h1, h2, h3 {
+    margin: 5px 0;
+  }
+
