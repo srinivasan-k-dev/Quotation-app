@@ -107,7 +107,7 @@ const downloadPDF = () => {
         <p className="top-line">
           <span style={{ color: "red"}}>செல் : 9442998070</span>
 <div>
-          <span style={{ color: "red" }}>SUPERVISOR: M.K.DINESH செல் : 6379794646</span>
+          <span style={{ color: "red" }}>MANAGER: M.K.DINESH செல் : 6379794646</span>
 </div>
         </p>
 
@@ -192,7 +192,7 @@ const downloadPDF = () => {
 
             <tr>
               <td>5</td>
-              <td>மட்டு குழி சார்ஜ்</td>
+              <td>மட்டு குழி சார்ஜ் (எடுக்‌‌‌க + மூட)</td>
               <td>{row5 ? `₹ ${formatINR(row5)}` : ""}</td>
             </tr>
 
@@ -205,7 +205,7 @@ const downloadPDF = () => {
             <tr>
               <td>7</td>
               <td>
-                {formData.pipe || "___"} பைப் ஒரு மீட்டர் ரூ.{formData.meter || "___"} வீதம் {formData.meterukku || "___"} மீட்டருக்கு
+                {formData.pipe || "___"} பைப் ஒரு மீட்டர் ரூ.{formData.meter || "___"} வீதம் {formData.meterukku || "___"} மீட்டருக்கு ({formData.pipe_name || "________"})
               </td>
               <td>{row7 ? `₹ ${formatINR(row7)}` : ""}</td>
             </tr>
@@ -230,13 +230,13 @@ const downloadPDF = () => {
 
             <tr>
               <td>11</td>
-              <td>தண்ணீர் சார்ஜ்</td>
+              <td>தண்ணீர் சார்ஜ் (Party பொறுப்‌‌‌பு or தனி Bill)</td>
               <td>{row11 ? `₹ ${formatINR(row11)}` : ""}</td>
             </tr>
 
             <tr>
               <td>12</td>
-              <td>டேங்க் வாடகை மற்றும் டிரான்ஸ்போர்ட்</td>
+              <td>டேங்க் வாடகை மற்றும் டிரான்ஸ்போர்ட் (Party பொறுப்‌‌‌பு or தனி Bill)</td>
               <td>{row12 ? `₹ ${formatINR(row12)}` : ""}</td>
             </tr>
 
@@ -280,6 +280,9 @@ const downloadPDF = () => {
           <div className="footer">
             பாறை வந்தால் பாறை உடைக்கும் சார்ஜ் தனி...
           </div>
+<div className="bit">
+<p>ஒரு பாறை Bit ரூ. {formData.bit || "______________"}</p>
+</div>
         </div>
 
       </div>

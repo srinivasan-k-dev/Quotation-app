@@ -290,13 +290,25 @@ function Form({ formData, setFormData, onSubmit }) {
         {/* ── PIPE DETAILS ──────────────────────────── */}
         <div className="form-section">
           <div className="form-section-title">பைப் விவரங்கள்</div>
-
-          <div className="field-row">
+           <div className="field-row">
+            <div className="field-group">
+              <label>பைப் பெயர்‌‌‌</label>
+              <div className="input-with-unit">
+                <input
+                  type="text"
+name="pipe_name"
+                  placeholder="பெயர்‌‌‌"
+                  value={formData.pipe_name}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">Name</span>
+              </div>
+            </div>
             <div className="field-group">
               <label>பைப் அளவு</label>
               <div className="input-with-unit">
                 <input
-                  type="number"
+                  type="text"
                   name="pipe"
                   placeholder="0"
                   value={formData.pipe}
@@ -425,6 +437,25 @@ type="number"
 name="advance"
 placeholder="தொகை"
 value={formData.advance}
+onChange={handleChange}
+/>
+<span className="input-unit">தொகை</span>
+              </div>
+</div>
+</div>
+</div>
+<div className="form-section">
+          <div className="form-section-title">பாறை தொகை விவரம்‌‌‌</div>
+
+<div className="field-row">
+<div className="field-group">
+<label>பாறை Bit தொகை பெற்‌‌‌றது</label>
+<div className="input-with-unit">
+<input
+type="number"
+name="bit"
+placeholder="தொகை"
+value={formData.bit}
 onChange={handleChange}
 />
 <span className="input-unit">தொகை</span>
