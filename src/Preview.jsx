@@ -28,11 +28,12 @@ const row15 = num(formData.row3);
   const row12 = num(formData.tank);
   const row13 = num(formData.pipeTransport);
   const row14 = num(formData.pump);
+const row16 = num(formData.bit);
 
   const total =
     row1 + row2 + row15 + row4 + row5 + row6 +
     row7 + row8 + row9 + row10 + row11 + row12 +
-    row13 + row14;
+    row13 + row14 + row16;
 
 const downloadPDF = () => {
   const element = document.getElementById("pdf-content");
@@ -251,7 +252,11 @@ const downloadPDF = () => {
               <td>{formData.pump || "___"} பம்பு &nbsp; {formData.HP || "___"} H.P</td>
               <td>{row14 ? `₹ ${formatINR(row14)}` : ""}</td>
             </tr>
-
+ <tr>
+              <td>15</td>
+<td>ஒரு பாறை Bit ரூ. </td>
+              <td>{row16 ? `₹ ${formatINR(row16)}` : ""}</td>
+            </tr>
             {/* ── TOTAL ROW ─────────────────────── */}
             <tr className="total-row">
               <td colSpan={2} style={{ textAlign: "right", paddingRight: "12px" }}>
@@ -280,9 +285,6 @@ const downloadPDF = () => {
           <div className="footer">
             பாறை வந்தால் பாறை உடைக்கும் சார்ஜ் தனி...
           </div>
-<div className="bit">
-<p>ஒரு பாறை Bit ரூ. {formData.bit || "______________"}</p>
-</div>
         </div>
 
       </div>
