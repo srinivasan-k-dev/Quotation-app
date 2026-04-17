@@ -425,6 +425,19 @@ name="pipe_name"
                 <span className="input-unit">HP</span>
               </div>
             </div>
+<div className="field-group">
+<label>பம்‌‌‌பு தொகை</label>
+              <div className="input-with-unit">
+                <input
+                  type="number"
+                  name="pump_total"
+                  placeholder="0"
+                  value={formData.pump_total}
+                  onChange={handleChange}
+                />
+                <span className="input-unit">தொகை</span>
+              </div>
+</div>
 </div>
         </div>
 <div className="form-section">

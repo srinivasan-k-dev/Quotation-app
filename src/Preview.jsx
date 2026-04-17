@@ -27,7 +27,7 @@ const row15 = num(formData.row3);
   const row11 = num(formData.water);
   const row12 = num(formData.tank);
   const row13 = num(formData.pipeTransport);
-  const row14 = num(formData.pump);
+  const row14 = num(formData.pump_total);
 const row16 = num(formData.bit);
 
   const total =

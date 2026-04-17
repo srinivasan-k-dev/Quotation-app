@@ -61,6 +61,7 @@ function App() {
       row3: "",
 bit: "",
 pipe_name: "",
+pump_total: "",
     })
   );
 
