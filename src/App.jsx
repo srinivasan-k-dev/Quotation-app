@@ -18,6 +18,39 @@ const safeParse = (key, fallback) => {
   }
 };
 
+const initialFormState = {
+  name: "",
+  address: "",
+  date: "",
+  size: "",
+  depth: "",
+  inch: "",
+  veetham: "",
+  adi: "",
+  jalli: "",
+  jallithogai: "",
+  kamprasar: "",
+  transport: "",
+  mattukuli: "",
+  mattu: "",
+  pipe: "",
+  meter: "",
+  meterukku: "",
+  slad: "",
+  cape: "",
+  clamp: "",
+  water: "",
+  tank: "",
+  pipeTransport: "",
+  pump: "",
+  HP: "",
+  advance: "",
+  row3: "",
+  bit: "",
+  pipe_name: "",
+  pump_total: "",
+};
+
 function App() {
   // ✅ Persisted input data
   const [data, setData] = useState(() =>
@@ -31,38 +64,7 @@ function App() {
 
   // ✅ Persisted form data
   const [formData, setFormData] = useState(() =>
-    safeParse("formData", {
-      name: "",
-      address: "",
-      date: "",
-      size: "",
-      depth: "",
-      inch: "",
-      veetham: "",
-      adi: "",
-      jalli: "",
-      jallithogai: "",
-      kamprasar: "",
-      transport: "",
-      mattukuli: "",
-      mattu: "",
-      pipe: "",
-      meter: "",
-      meterukku: "",
-      slad: "",
-      cape: "",
-      clamp: "",
-      water: "",
-      tank: "",
-      pipeTransport: "",
-      pump: "",
-      HP: "",
-      advance: "",
-      row3: "",
-bit: "",
-pipe_name: "",
-pump_total: "",
-    })
+    safeParse("formData", initialFormState)
   );
 
   // ✅ Persisted submitted data
@@ -70,14 +72,19 @@ pump_total: "",
     safeParse("submittedData", {})
   );
 
-  // 🔄 Save all states to localStorage
+  // 🔄 Save data to localStorage
   useEffect(() => {
     localStorage.setItem("myData", JSON.stringify(data));
   }, [data]);
 
+  // ✅ FIX: localStorage.setItem is now inside useEffect (was outside before causing bug)
+  // Also saves per-user key only when uid is available
   useEffect(() => {
     localStorage.setItem("formData", JSON.stringify(formData));
-  }, [formData]);
+    if (user?.uid) {
+      localStorage.setItem(`formData_${user.uid}`, JSON.stringify(formData));
+    }
+  }, [formData, user]);
 
   useEffect(() => {
     localStorage.setItem("submittedData", JSON.stringify(submittedData));
@@ -92,9 +99,29 @@ pump_total: "",
   }, [user]);
 
   // 🔓 Logout
-  const handleLogout = () => {
-    signOut(auth);
+  const handleLogout = async () => {
+    const uid = user?.uid; // ✅ Capture uid before clearing user state
+
+    try {
+      await signOut(auth);
+    } catch (e) {
+      console.error("Logout error:", e);
+    }
+
+    // 🔴 Clear React state
     setUser(null);
+    setData("");
+    setFormData(initialFormState);
+    setSubmittedData({});
+
+    // 🔴 Clear localStorage
+    localStorage.removeItem("user");
+    localStorage.removeItem("myData");
+    localStorage.removeItem("formData");
+    localStorage.removeItem("submittedData");
+    if (uid) {
+      localStorage.removeItem(`formData_${uid}`); // ✅ Uses captured uid safely
+    }
   };
 
   // 🔐 If not logged in → show login
