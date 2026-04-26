@@ -285,8 +285,10 @@ const downloadPDF = () => {
           <div className="footer">
             பாறை வந்தால் பாறை உடைக்கும் சார்ஜ் தனி...
           </div>
-        </div>
-
+<div className="bit">
+<p>ஒரு பாறை Bit ரூ.{formData.bit || "_____________"}</p>
+</div>
+</div>
       </div>
     </>
   );
